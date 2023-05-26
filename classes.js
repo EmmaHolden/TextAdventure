@@ -21,6 +21,9 @@ export class Player {
     decreasesHealth(amount){
         this.health -= amount;
         console.log(`${this.name} has lost ${amount} health and now has ${this.health} remaining.`)
+        if (this.health < 0) {
+            console.log("Unfortunately, you have died!")
+        }
     }
 
     increasesHealth(amount){
@@ -42,9 +45,6 @@ export class Player {
         console.log(`${this.name} attacks the enemy.`)
     }
 
-    dies(){
-        console.log("Unfortunately, you have died.")
-    }
 }
 
 export class Animal {
