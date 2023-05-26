@@ -3,11 +3,6 @@ import {Player, Animal, Dinosaur, Bear} from './classes.js'
 import { grizzlyEncounter, findWeapon, dinosaurEncounter, playerEscapes} from './functions.js'
 import chalk from 'chalk';
 
-let advance = async () => {
-    let answer = await goForward()
-    console.log(answer)
-}
-
 let start = async () => {
     let answer = await getName()
     playerCharacter.name = answer
@@ -25,7 +20,7 @@ let chooseFood = async () => {
         playerCharacter.hunger += 20
         playerCharacter.increasesHealth(10)
     } else {
-        console.log(chalk.purple("Surprise! You have recieved the unknown fruit."))
+        console.log(chalk.magenta("Surprise! You have recieved the unknown fruit."))
         playerCharacter.increasesEnergy(20)
         playerCharacter.hunger += 30
         
@@ -44,7 +39,7 @@ let chooseDirection = async () => {
         grizzlyEncounter(playerCharacter, grizzlyBear)
     }
     else {
-        console.log(chalk.orange("You have caught a disease in the water!"))
+        console.log(chalk.cyan("You have caught a disease in the water!"))
         playerCharacter.decreasesHealth(50)
         playerCharacter.disease += 50
     }

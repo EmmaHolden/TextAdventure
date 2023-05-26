@@ -11,12 +11,12 @@ export class Player {
     }
 
     eats() {
-        console.log(chalk.pink(`${this.name} is eating.`))
+        console.log(`${this.name} is eating.`)
         return this
     }
 
     sleeps() {
-        console.log(chalk.blue(`${this.name} is sleeping.`))
+        console.log(`${this.name} is sleeping.`)
         return this
     }
 
