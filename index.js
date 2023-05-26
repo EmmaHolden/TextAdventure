@@ -1,6 +1,7 @@
 import { getName, sleep, food, directions} from './inq.js'
 import {Player, Animal, Dinosaur, Bear} from './classes.js'
 import { grizzlyEncounter, findWeapon, dinosaurEncounter, playerEscapes} from './functions.js'
+import chalk from 'chalk';
 
 let advance = async () => {
     let answer = await goForward()
@@ -16,15 +17,15 @@ let start = async () => {
 let chooseFood = async () => {
     let answer = await food()
     if (answer.userAnswer == "strawberry"){
-        console.log("You are poisoned!")
+        console.log(chalk.red("You are poisoned!"))
         playerCharacter.hunger += 40
         playerCharacter.decreasesHealth(30)
     } else if (answer.userAnswer == "apple") {
-        console.log("That was really tasty ")
+        console.log(chalk.green("That was really tasty "))
         playerCharacter.hunger += 20
         playerCharacter.increasesHealth(10)
     } else {
-        console.log("Surprise! You have recieved the unknown fruit.")
+        console.log(chalk.purple("Surprise! You have recieved the unknown fruit."))
         playerCharacter.increasesEnergy(20)
         playerCharacter.hunger += 30
         
@@ -33,7 +34,7 @@ let chooseFood = async () => {
 }
 
 let chooseDirection = async () => {
-    console.log("You walk along the path and you lose energy.")
+    console.log(chalk.yellow("You walk along the path and you lose energy."))
     playerCharacter.decreasesEnergy(20)
     let answer = await directions()
     if(answer.userAnswer == "left"){
@@ -43,7 +44,7 @@ let chooseDirection = async () => {
         grizzlyEncounter(playerCharacter, grizzlyBear)
     }
     else {
-        console.log("You have caught a disease in the water!")
+        console.log(chalk.orange("You have caught a disease in the water!"))
         playerCharacter.decreasesHealth(50)
         playerCharacter.disease += 50
     }

@@ -1,3 +1,5 @@
+import chalk from 'chalk';
+
 export class Player {
     constructor(name) {
         this.name = name
@@ -9,12 +11,12 @@ export class Player {
     }
 
     eats() {
-        console.log(`${this.name} is eating.`)
+        console.log(chalk.pink(`${this.name} is eating.`))
         return this
     }
 
     sleeps() {
-        console.log(`${this.name} is sleeping.`)
+        console.log(chalk.blue(`${this.name} is sleeping.`))
         return this
     }
 
@@ -22,7 +24,7 @@ export class Player {
         this.health -= amount;
         console.log(`${this.name} has lost ${amount} health and now has ${this.health} remaining.`)
         if (this.health < 0) {
-            console.log("Unfortunately, you have died!")
+            console.log(chalk.red("Unfortunately, you have died!"))
         }
     }
 
